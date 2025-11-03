@@ -1,0 +1,14 @@
+{
+  "name": "casco-ai-client-portal",
+  "version": "1.0.0",
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "devCommand": "npm run dev",
+  "rootDirectory": ".",
+  "environment": {
+    "NODE_VERSION": "18"
+  }
+}
+

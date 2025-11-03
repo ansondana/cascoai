@@ -1,0 +1,38 @@
+name: Deploy to Lovable
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: portal/package-lock.json
+      
+      - name: Install dependencies
+        working-directory: ./portal
+        run: npm ci
+      
+      - name: Build
+        working-directory: ./portal
+        run: npm run build
+        env:
+          NODE_ENV: production
+      
+      - name: Deploy to Lovable
+        # Add Lovable deployment step here
+        # This depends on Lovable's deployment API
+        run: |
+          echo "Deploy to Lovable"
+          # Add deployment command when available
+
